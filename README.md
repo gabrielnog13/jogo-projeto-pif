@@ -1,8 +1,7 @@
 ## Documentação do Projeto
 
 <p align="justify">
-  Projeto sendo desenvolvido, utilizando linguagem C.
-</p>
+  Projeto sendo desenvolvido, utilizando linguagem C. </p>
 <br>
 
 ## Detalhamento
@@ -12,6 +11,6 @@
 <strong>Rayanne Falcão</strong> - @
 <br>
 <br>
-<p>Programação Imperativa e Funcional - 2024.2</p>
-<br>
-<p>CESAR School</p>
+<p><strong>Programação Imperativa e Funcional - 2024.2</strong></p>
+
+<p><strong>CESAR School</strong></p>
