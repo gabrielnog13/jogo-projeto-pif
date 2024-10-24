@@ -5,8 +5,7 @@
 <br>
 <strong>Gabriel Nogueira</strong> - @gabrielnog13 <br>
 <strong>Luccas Fernandes</strong> - @luccas-fernandes <br>
-<strong>Rayanne Falcão</strong> - @
-<br>
+<strong>Rayanne Falcão</strong> - @rayannefalcaoo <br>
 <br>
 <p><strong>Programação Imperativa e Funcional - 2024.2</strong></p>
 
