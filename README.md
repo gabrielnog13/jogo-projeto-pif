@@ -11,6 +11,7 @@
 <strong>Luccas Fernandes</strong> - @luccas-fernandes <br>
 <strong>Rayanne Falcão</strong> - @
 <br>
+<br>
 <p>Programação Imperativa e Funcional - 2024.2</p>
 <br>
 <p>CESAR School</p>
