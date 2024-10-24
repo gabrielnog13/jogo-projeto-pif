@@ -2,29 +2,30 @@
 
 <p align="justify">
   
-  Projeto sendo desenvolvido, utilizando a biblioteca [CLI-Lib](https://github.com/tgfb/cli-lib)
+  Projeto sendo desenvolvido, utilizando linguagem C.
   
 </p>
 <br>
-
-- C;
-- CLI-Lib;
 
 <div style="display: inline_block"><br>
   <!--img align="center" alt="React" heigth="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"-->
 </div>
 
-## Desenvolvedores
-feito por: 
+## Detalhamento
+<strong>
 <br>
-<strong>Gabriel Nogueira</strong> <br>
-<strong>Luccas Fernandes</strong> <br>
-<strong>Rayanne Falcão</strong> 
-<br>
+<strong>Gabriel Nogueira</strong> - @nogboy9 <br>
+<strong>Luccas Fernandes</strong> - @luccas-fernandes <br>
+<strong>Rayanne Falcão</strong> - @
+</strong>
 <br>
 
-<h3>Programação Imperativa e Funcional - 2024.2</h3>
+<h2>Programação Imperativa e Funcional - 2024.2</h2>
 <br>
+
+<h2>CESAR School<h2>
+<br>
+
 
 <p width="100%" align="center">
   Projeto sendo desenvolvido...
