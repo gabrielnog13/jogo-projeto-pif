@@ -15,7 +15,6 @@
 <br>
 
 <h2>Programação Imperativa e Funcional - 2024.2</h2>
-<br>
 
 <h2>CESAR School<h2>
 <br>
