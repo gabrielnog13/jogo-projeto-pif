@@ -3,9 +3,6 @@
 <p align="justify">
   Projeto sendo desenvolvido, utilizando linguagem C. </p>
 <br>
-
-## Detalhamento
-<br>
 <strong>Gabriel Nogueira</strong> - @nogboy9 <br>
 <strong>Luccas Fernandes</strong> - @luccas-fernandes <br>
 <strong>Rayanne Falcão</strong> - @
