@@ -1,11 +1,9 @@
 ## Documentação do Projeto
 
 <p align="justify">
-  
   Projeto sendo desenvolvido, utilizando linguagem C.
 </p>
 <br>
-
 ## Detalhamento
 <strong>
 <br>
