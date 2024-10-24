@@ -4,6 +4,7 @@
   Projeto sendo desenvolvido, utilizando linguagem C.
 </p>
 <br>
+
 ## Detalhamento
 <strong>
 <br>
