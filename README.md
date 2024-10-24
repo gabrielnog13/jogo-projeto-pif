@@ -8,7 +8,7 @@
 <br>
 
 - C;
-- cli-lib;
+- CLI-Lib;
 
 <div style="display: inline_block"><br>
   <!--img align="center" alt="React" heigth="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"-->
