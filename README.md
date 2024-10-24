@@ -2,7 +2,7 @@
 
 <p align="justify">
   
-  Projeto sendo desenvolvido, utilizando a biblioteca [CLI-Lib](https://github.com/tgfb/cli-lib) 🚧
+  Projeto sendo desenvolvido, utilizando a biblioteca [CLI-Lib](https://github.com/tgfb/cli-lib)
   
 </p>
 <br>
@@ -21,12 +21,12 @@ feito por:
 <strong>Luccas Fernandes</strong> <br>
 <strong>Rayanne Falcão</strong> 
 <br>
-
+<br>
 
 <h3>Programação Imperativa e Funcional - 2024.2</h3>
 <br>
 
 <p width="100%" align="center">
-  Projeto em desenvolvimento 🚧
+  Projeto sendo desenvolvido...
   <!--a href="https://git-find-alpha.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Preview-FF5722?style=for-the-badge&logo=todoist&logoColor=white" width="30%"></a-->
 </p>
