@@ -1,19 +1,12 @@
 ## Documentação do Projeto
 
 <p align="justify">
-  Projeto sendo desenvolvido, utilizando linguagem C.
-</p>
+  Projeto sendo desenvolvido, utilizando linguagem C. </p>
 <br>
-
-## Detalhamento
-<br>
-<strong>Gabriel Nogueira</strong> - @nogboy9 <br>
+<strong>Gabriel Nogueira</strong> - @gabrielnog13 <br>
 <strong>Luccas Fernandes</strong> - @luccas-fernandes <br>
-<strong>Rayanne Falcão</strong> - @
+<strong>Rayanne Falcão</strong> - @rayannefalcaoo <br>
 <br>
+<p><strong>Programação Imperativa e Funcional - 2024.2</strong></p>
 
-<h2>Programação Imperativa e Funcional - 2024.2</h2>
-<br>
-
-<h2>CESAR School<h2>
-<br>
+<p><strong>CESAR School</strong></p>
