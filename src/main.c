@@ -1,73 +1,70 @@
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include "keyboard.h"
+#include "screen.h"
+#include "timer.h"
 
-#include "../include/screen.h"
-#include "../include/keyboard.h"
-#include "../include/timer.h"
+#define MAX_BALAS 5  
 
-int x = 34, y = 12;
-int incX = 1, incY = 1;
+int x = 2, y = 22;             
+int prevx, prevy;              
+int inimigoX = 30, inimigoY = 5;   
+int inimigoVivo = 1;            
 
-void printHello(int nextX, int nextY)
-{
-    screenSetColor(CYAN, DARKGRAY);
-    screenGotoxy(x, y);
-    printf("           ");
-    x = nextX;
-    y = nextY;
-    screenGotoxy(x, y);
-    printf("Hello World");
-}
+typedef struct {
+    int balaX;
+    int balaY;
+    int ativa;
+} Bala;
 
-void printKey(int ch)
-{
-    screenSetColor(YELLOW, DARKGRAY);
-    screenGotoxy(35, 22);
-    printf("Key code :");
+Bala balas[MAX_BALAS];  
 
-    screenGotoxy(34, 23);
-    printf("            ");
-    
-    if (ch == 27) screenGotoxy(36, 23);
-    else screenGotoxy(39, 23);
+void imprimeJogador();
+void criaBala();
+void moveBalas();
 
-    printf("%d ", ch);
-    while (keyhit())
-    {
-        printf("%d ", readch());
-    }
-}
-
-int main() 
-{
-    static int ch = 0;
-
+int main() {
+    int tecla = 0;
     screenInit(1);
     keyboardInit();
-    timerInit(50);
+    timerInit(150);
 
-    printHello(x, y);
-    screenUpdate();
+    for (int i = 0; i < MAX_BALAS; i++) {
+        balas[i].ativa = 0;
+    }
 
-    while (ch != 10) //enter
-    {
-        // Handle user input
-        if (keyhit()) 
-        {
-            ch = readch();
-            printKey(ch);
-            screenUpdate();
+    while (tecla != 10) {  
+        if (keyhit()) {
+            tecla = readch();
         }
 
-        // Update game state (move elements, verify collision, etc)
-        if (timerTimeOver() == 1)
-        {
-            int newX = x + incX;
-            if (newX >= (MAXX -strlen("Hello World") -1) || newX <= MINX+1) incX = -incX;
-            int newY = y + incY;
-            if (newY >= MAXY-1 || newY <= MINY+1) incY = -incY;
+        if (timerTimeOver() == 1) {
+            if (tecla == 'a' || tecla == 'A') {
+                if (x > 0) {
+                    x -= 2;
+                }
+                tecla = 0;
+            } else if (tecla == 'd' || tecla == 'D') {
+                if (x < 38) {
+                    x += 2;
+                }
+                tecla = 0;
+            }
 
-            printKey(ch);
-            printHello(newX, newY);
+            if (tecla == ' ' ) {
+                criaBala();
+                tecla = 0;
+            }
+
+            imprimeJogador();
+            moveBalas();
+
+            if (inimigoVivo) {
+                screenSetColor(GREEN, DARKGRAY);
+                screenGotoxy(inimigoX, inimigoY);
+                printf(" X ");
+            }
 
             screenUpdate();
         }
@@ -78,4 +75,52 @@ int main()
     timerDestroy();
 
     return 0;
+}
+
+void imprimeJogador() {
+    screenGotoxy(prevx, prevy);
+    printf("   ");
+    screenSetColor(CYAN, DARKGRAY);
+    screenGotoxy(x, y);
+    printf(" △ ");
+    prevx = x;
+    prevy = y;
+}
+
+void criaBala() {
+    for (int i = 0; i < MAX_BALAS; i++) {
+        if (!balas[i].ativa) {
+            balas[i].balaX = x;
+            balas[i].balaY = y - 1;
+            balas[i].ativa = 1;
+            break;
+        }
+    }
+}
+
+void moveBalas() {
+    for (int i = 0; i < MAX_BALAS; i++) {
+        if (balas[i].ativa) {
+            screenGotoxy(balas[i].balaX, balas[i].balaY);
+            printf("   ");
+
+            balas[i].balaY -= 1;
+
+            if (inimigoVivo && balas[i].balaY == inimigoY && balas[i].balaX == inimigoX) {
+                balas[i].ativa = 0;
+                screenGotoxy(inimigoX, inimigoY);
+                printf("   ");
+                inimigoVivo = 0;
+                continue;
+            }
+
+            if (balas[i].balaY <= 1) {
+                balas[i].ativa = 0;
+            } else {
+                screenSetColor(YELLOW, DARKGRAY);
+                screenGotoxy(balas[i].balaX, balas[i].balaY);
+                printf("^");
+            }
+        }
+    }
 }
