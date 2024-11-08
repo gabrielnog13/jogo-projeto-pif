@@ -11,5 +11,5 @@
 
 <p><strong>CESAR School</strong></p>
 
-<p><strong>Como Jogar?</strong></p>
+<h2><strong>Como Jogar?</strong></h2>
 <p>Esse é um jogo inspirado no Space Invaders onde tem como o objetivo eliminar os inimigos que estão atirando contra o seu personagem. Na medida que você vai desviando das balas dos seus inimigos, você vai atirando contra eles até eliminar todos e ir aumentando mais a sua pontuação, ganhando 10 pontos por inimigo eliminado, até que não sobre nenhum e você ganhe o jogo! <br> Porém, se você for atingido por alguma bala dos seus oponentes, é GAME OVER para você.</p>
