@@ -28,5 +28,5 @@ gcc ./src/*.c -I include -o jogo
 ```
 3º) Rode o jogo
 ```
-./teste
+./jogo
 ```
