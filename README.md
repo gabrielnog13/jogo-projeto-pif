@@ -14,8 +14,16 @@
 <h2><strong>Como Jogar?</strong></h2>
 <p>Esse é um jogo inspirado no Space Invaders onde tem como o objetivo eliminar os inimigos que estão atirando contra o seu personagem. Na medida que você vai desviando das balas dos seus inimigos, você vai atirando contra eles até eliminar todos e ir aumentando mais a sua pontuação, ganhando 10 pontos por inimigo eliminado, até que não sobre nenhum e você ganhe o jogo! <br> Porém, se você for atingido por alguma bala dos seus oponentes, é GAME OVER para você.</p>
 
-#Como rodar o jogo?
+##Como rodar o jogo?
 1º) Clone o repositório
   ```
-  [git clone https://github.com/
+  [git clone https://github.com/](https://github.com/gabrielnog13/jogo-projeto-pif.git)
   ```
+2º) Compile o jogo para roda-lo
+```
+gcc ./src/*.c -I include -o jogo
+```
+3º) Rode o jogo
+```
+./teste
+```
