@@ -10,12 +10,13 @@
 #define NUM_INIMIGOS 20 
 #define MAX_BALAS_INIMIGAS 40
 
-int x = 2, y = 22;  
+int *x, *y;  
 int Pontuacao = 0;
 int prevx, prevy;              
 int inimigoX[NUM_INIMIGOS], inimigoY[NUM_INIMIGOS];   
 int inimigoVivo[NUM_INIMIGOS]; 
 int gameOver = 0;
+int inimigosRestantes = NUM_INIMIGOS;
 
 typedef struct {
     int balaX;
@@ -34,6 +35,7 @@ void MostrarPontuacao();
 void criaBalasInimigas();
 void moveBalasInimigas();
 void verificaColisaoJogador();
+void verificaVitoria();
 
 int main() {
     int tecla = 0;
@@ -42,6 +44,17 @@ int main() {
     timerInit(150);
 
     srand(time(NULL));
+
+    x = (int *)malloc(sizeof(int));
+    y = (int *)malloc(sizeof(int));
+
+    if (x == NULL || y == NULL) {
+        fprintf(stderr, "Erro de alocação de memória.\n");
+        return 1;
+    }
+
+    *x = 2;
+    *y = 22;
 
     for (int i = 0; i < MAX_BALAS; i++) {
         balas[i].ativa = 0;
@@ -53,7 +66,7 @@ int main() {
 
     criaInimigos();
 
-    while (tecla != 10 && !gameOver) {  
+    while (tecla != 10 && gameOver == 0) {  
         if (keyhit()) {
             tecla = readch();
         }
@@ -61,13 +74,13 @@ int main() {
 
         if (timerTimeOver() == 1) {
             if (tecla == 'a' || tecla == 'A') {
-                if (x > 2) {
-                    x -= 2;
+                if (*x > 2) {
+                    *x -= 2;
                 }
                 tecla = 0;
             } else if (tecla == 'd' || tecla == 'D') {
-                if (x < 76) {
-                    x += 2;
+                if (*x < 76) {
+                    *x += 2;
                 }
                 tecla = 0;
             }
@@ -82,6 +95,7 @@ int main() {
             criaBalasInimigas();
             moveBalasInimigas();
             verificaColisaoJogador();
+            verificaVitoria();
 
             for (int i = 0; i < NUM_INIMIGOS; i++) {
                 if (inimigoVivo[i]) {
@@ -95,15 +109,20 @@ int main() {
         }
     }
 
-    if (gameOver) {
-        screenClear();
-        screenGotoxy(35, 12);
+    screenClear();
+    screenGotoxy(35, 12);
+    if (gameOver == 1) {
         printf("Game Over!");
-        screenGotoxy(30, 14);
-        printf("Pontuação Final: %d", Pontuacao);
-        screenUpdate();
-        sleep(3);
+    } else if (gameOver == 2) {
+        printf("Você Venceu!");
     }
+    screenGotoxy(30, 14);
+    printf("Pontuação Final: %d", Pontuacao);
+    screenUpdate();
+    sleep(3);
+
+    free(x);
+    free(y);
 
     keyboardDestroy();
     screenDestroy();
@@ -116,17 +135,17 @@ void imprimeJogador() {
     screenGotoxy(prevx, prevy);
     printf("   ");
     screenSetColor(CYAN, DARKGRAY);
-    screenGotoxy(x, y);
+    screenGotoxy(*x, *y);
     printf(" 🛸 ");
-    prevx = x;
-    prevy = y;
+    prevx = *x;
+    prevy = *y;
 }
 
 void criaBala() {
     for (int i = 0; i < MAX_BALAS; i++) {
         if (!balas[i].ativa) {
-            balas[i].balaX = x + 1;
-            balas[i].balaY = y - 1;
+            balas[i].balaX = *x + 1;
+            balas[i].balaY = *y - 1;
             balas[i].ativa = 1;
             break;
         }
@@ -149,6 +168,7 @@ void moveBalas() {
                     printf("   ");
                     inimigoVivo[j] = 0; 
                     Pontuacao += 10;
+                    inimigosRestantes--;
                     break; 
                 }
             }
@@ -222,11 +242,17 @@ void moveBalasInimigas() {
 void verificaColisaoJogador() {
     for (int i = 0; i < MAX_BALAS_INIMIGAS; i++) {
         if (balasInimigas[i].ativa) {
-            if (balasInimigas[i].balaY == y && 
-                balasInimigas[i].balaX >= x && balasInimigas[i].balaX <= x + 2) {
+            if (balasInimigas[i].balaY == *y && 
+                balasInimigas[i].balaX >= *x && balasInimigas[i].balaX <= *x + 2) {
                 gameOver = 1;
                 return;
             }
         }
+    }
+}
+
+void verificaVitoria() {
+    if (inimigosRestantes == 0) {
+        gameOver = 2;
     }
 }
